@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: user-center
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lyh
+    username: root
+    password: 123456
+  session:
+    timeout: 86400
+    #失效时间
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+  global-config:
+      db-config:
+        logic-delete-field: isDelete # 全局逻辑删除字段名,isDelete的意思是数据库中判断数据是否删除的字段，再去user.java
+        logic-delete-value: 1 # 逻辑已删除值
+        logic-not-delete-value: 0 # 逻辑未删除值
+#逻辑删除会自动地把字段数据分为已删除和未删除
+#这样用来去避开已经删除的数据
